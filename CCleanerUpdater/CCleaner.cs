@@ -5,7 +5,7 @@ namespace CCleanerUpdater
 {
     static class CCleaner
     {
-        public static readonly Dictionary<string,string> Languages = new Dictionary<string,string>()
+        public static readonly Dictionary<string, string> Languages = new Dictionary<string, string>()
             {
             {"Albanian","1052"},{"Arabic","1025"},{"Armenian","1067"},{"Azeri Latin","1068"},{"Belarusian","1059"},{"Bosnian","5146"},{"Portuguese(Brazil)","1046"},
             {"Bulgarian","1026"},{"Catalan","1027"},{"Chinese-Simplified","2052"},{"Chinese-Traditional","1028"},{"Croatian"," 1050"},{"Czech","1029"},

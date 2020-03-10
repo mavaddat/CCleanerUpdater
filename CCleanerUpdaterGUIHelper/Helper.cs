@@ -31,7 +31,7 @@ namespace CCleanerUpdaterGUIHelper
         {
             InitializeComponent();
             Init();
-        
+
             DetectSystemLanguage();
 
             string x64DefaultPath = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + "\\CCleaner";
@@ -49,7 +49,7 @@ namespace CCleanerUpdaterGUIHelper
 
         private void DetectSystemLanguage()
         {
-            System.Globalization.CultureInfo ci = System.Globalization.CultureInfo.InstalledUICulture; 
+            System.Globalization.CultureInfo ci = System.Globalization.CultureInfo.InstalledUICulture;
             string sysLang = ci.EnglishName.Split(' ')[0];
 
             for (int i = 0; i < Languages.Length / 2; i++)
@@ -71,16 +71,16 @@ namespace CCleanerUpdaterGUIHelper
 
         private void FillItems(ComboBox Bucket, String[,] Data)
         {
-            for(int i = 0; i<Data.GetLength(0); i++)
+            for (int i = 0; i < Data.GetLength(0); i++)
             {
-                Bucket.Items.Add(Data[i,0]);
+                Bucket.Items.Add(Data[i, 0]);
             }
-            Bucket.SelectedIndex= 0;
+            Bucket.SelectedIndex = 0;
         }
 
         private void CCPathSelect_Click(object sender, EventArgs e)
         {
-            if(Selector.ShowDialog() != DialogResult.Cancel)
+            if (Selector.ShowDialog() != DialogResult.Cancel)
             {
                 CCPath.Text = Selector.SelectedPath;
             }
@@ -88,13 +88,13 @@ namespace CCleanerUpdaterGUIHelper
 
         private void HelpMe_Click(object sender, EventArgs e)
         {
-            if(CCPath.Text != "")
+            if (CCPath.Text != "")
             {
                 try
                 {
                     Process.Start("CCleanerUpdater.exe", "path=\"" + CCPath.Text + "\" lang=\"" + Languages[Lang.SelectedIndex, 1] + "\" winapp2=\"" + Winapp2Options[WinApp2.SelectedIndex, 1] + "\" service=\"" + ServiceOptions[Service.SelectedIndex, 1] + "\"");
                 }
-                catch(Exception)
+                catch (Exception)
                 {
                     MessageBox.Show("CCleanerUpdater.exe not found!\nBe sure to don't rename the tool.\nBe sure to place this .exe on the same folder of tool!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -103,6 +103,11 @@ namespace CCleanerUpdaterGUIHelper
             {
                 MessageBox.Show("Select CCleaner's Path!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void Helper_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

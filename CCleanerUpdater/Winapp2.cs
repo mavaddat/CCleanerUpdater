@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using System;
+﻿using System;
+using System.Collections.Generic;
 namespace CCleanerUpdater
 {
     static class Winapp2
     {
-        public static readonly Dictionary<string,string> Links = new Dictionary<string, string>()
+        public static readonly Dictionary<string, string> Links = new Dictionary<string, string>()
             {
                 {"Trimmer", "http://www.winapp2.com/trim.bat"},
                 {"File", "https://raw.githubusercontent.com/MoscaDotTo/Winapp2/master/Winapp2.ini"}

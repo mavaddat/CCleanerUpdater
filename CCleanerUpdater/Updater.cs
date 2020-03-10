@@ -11,12 +11,12 @@ namespace CCleanerUpdater
         private const String title = "--- CCleaner Updater by LightDestory ---";
         private const String USAGE = "Usage:\n\n" +
             "CCleanerUpdater.exe path=\"[CCleaner's Install Dir]\" lang=\"[Language]\" winapp2=\"[Option]\" service=\"[option]\"\n\n" +
-            "    # Common Install Dir: \"C:/Program Files/CCleaner\" - Use 'Common' if you want use this path\n"+
+            "    # Common Install Dir: \"C:/Program Files/CCleaner\" - Use 'Common' if you want use this path\n" +
             "    # WinApp2 Option:\n      # None - Don't install WinApp2\n      # Download - install the latest version\n      # DownloadTrim - Install Winapp2 and Run the Trimmer script\n" +
             "    # Service Option:\n      # None - Don't set-up the on startup service\n      # Install - Set-up the on startup service\n\n" +
             "Example: CCleanerUpdater.exe path=\"Common\" lang=\"1040\" winapp2=\"Download\" service=\"install\"";
-        
-        private readonly Dictionary<string,string> Links = new Dictionary<string,string>()
+
+        private readonly Dictionary<string, string> Links = new Dictionary<string, string>()
             {
                 {"Version", "https://raw.githubusercontent.com/LightDestory/CCleanerUpdater/master/version.txt" },
                 {"Website", "http://lightdestoryweb.altervista.org/" }
@@ -54,7 +54,7 @@ namespace CCleanerUpdater
                     InstallDir = InstallDir + "\\";
                 }
                 getCurrentVersionFromExe(InstallDir);
-                if (isUpdateAvailable(CurrentVersion, OnlineVersion))
+                if (IsUpdateAvailable(CurrentVersion, OnlineVersion))
                 {
                     Download(CCleaner.Links["Download"] + OnlineVersion.Substring(0, 4).Replace(".", "") + ".exe", Path.GetTempPath() + "\\" + CCleaner.FileName, "CCleaner");
                     Install(Lang);
@@ -69,7 +69,7 @@ namespace CCleanerUpdater
             WriteLineColored(ConsoleColor.Green, ConsoleColor.Blue, "Done!");
         }
 
-        private Boolean isUpdateAvailable(String local, String online)
+        private Boolean IsUpdateAvailable(String local, String online)
         {
             Console.WriteLine("Installed Version: {0}\nOnline Version: {1}", local, online);
             return (!local.Equals(online));
@@ -132,7 +132,7 @@ namespace CCleanerUpdater
                     {
                         OnlineVersion = new StringReader(webby.DownloadString(Winapp2.Links["File"])).ReadLine().Replace("; Version: ", "");
                         CurrentVersion = new StringReader(File.ReadAllText(path + "Winapp2.ini")).ReadLine().Replace("; Version: ", "");
-                        if (isUpdateAvailable(CurrentVersion, OnlineVersion))
+                        if (IsUpdateAvailable(CurrentVersion, OnlineVersion))
                         {
                             Download(Winapp2.Links["File"], path + "Winapp2.ini", "Winapp2");
                             if (Option.Contains("trim"))
@@ -229,9 +229,9 @@ namespace CCleanerUpdater
             switch (type)
             {
                 case "Language":
-                    foreach(KeyValuePair<string, string> d in CCleaner.Languages)
+                    foreach (KeyValuePair<string, string> d in CCleaner.Languages)
                     {
-                        if(data.Equals(d.Value))
+                        if (data.Equals(d.Value))
                         {
                             valid = true;
                             break;
@@ -271,7 +271,7 @@ namespace CCleanerUpdater
         public String getLangList()
         {
             String List = "";
-            foreach(KeyValuePair<string,string> d in CCleaner.Languages)
+            foreach (KeyValuePair<string, string> d in CCleaner.Languages)
             {
                 List += d.Key + ":" + d.Value + "\n";
             }
@@ -307,7 +307,7 @@ namespace CCleanerUpdater
                 string html = webby.DownloadString(CCleaner.Links["Version"]);
                 int start = html.IndexOf(CCleaner.HTMLPrefix) + CCleaner.HTMLPrefix.Length;
                 int end = html.IndexOf(CCleaner.HTMLSuffix) - start;
-                OnlineVersion = html.Substring(start, end).Substring(0,4);
+                OnlineVersion = html.Substring(start, end).Substring(0, 4);
             }
             catch (Exception ex)
             {

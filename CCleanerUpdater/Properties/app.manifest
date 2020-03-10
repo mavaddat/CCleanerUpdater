@@ -4,17 +4,17 @@
   <trustInfo xmlns="urn:schemas-microsoft-com:asm.v2">
     <security>
       <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
-        <!-- Opzioni manifesto di Controllo dell'account utente
-             Per modificare il livello di Controllo dell'account utente di Windows, sostituire il 
-             nodo requestedExecutionLevel con uno dei seguenti.
+        <!-- User Account Control manifest options
+            To change the Windows User Account Control level, replace the
+            requestedExecutionLevel node with one of the following.
 
         <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
         <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
         <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
 
-            Se si specifica l'elemento requestedExecutionLevel, la funzionalità Virtualizzazione file system e registro di sistema verrà disabilitata. 
-            Rimuovere questo elemento se l'applicazione richiede questa virtualizzazione per
-            compatibilità con le versioni precedenti.
+            If you specify the requestedExecutionLevel element, the file system and registry virtualization feature will be disabled.
+            Remove this item if the application requires this virtualization for
+            compatibility with previous versions.
         -->
         <requestedExecutionLevel level="requireAdministrator" uiAccess="false" />
       </requestedPrivileges>
@@ -23,9 +23,9 @@
 
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
     <application>
-      <!-- Elenco delle versioni di Windows in cui è stata testata questa applicazione e
-           per cui è stato previsto l'uso. Rimuovere il commento dagli elementi appropriati per 
-           fare in modo che Windows selezioni automaticamente l'ambiente più compatibile. -->
+      <!-- List of versions of Windows in which this application has been tested and intended for use.
+          Remove the comment from the appropriate elements to have Windows automatically select the most
+          compatible environment. -->
 
       <!-- Windows Vista -->
       <!--<supportedOS Id="{e2011457-1546-43c5-a5fe-008deee3d3f0}" />-->
@@ -41,14 +41,16 @@
 
       <!-- Windows 10 -->
       <!--<supportedOS Id="{8e0f7a12-bfb3-4fe8-b9a5-48fd50a15a9a}" />-->
-
+      
     </application>
   </compatibility>
 
-  <!-- Indica che l'applicazione è sensibile ai valori DPI e non verrà scalata automaticamente da Windows in caso di
-       valori DPI maggiori. Le applicazioni Windows Presentation Foundation (WPF) sono automaticamente sensibili ai valori DPI, pertanto non è necessario 
-       acconsentire esplicitamente. Con le applicazioni Windows Form destinate a .NET Framework 4.6 per cui è stato acconsentito esplicitamente a questa impostazione, 
-       è anche necessario impostare 'EnableWindowsFormsHighDpiAutoResizing' su 'true' nel relativo file app.config. -->
+  <!-- Indicates that the application is sensitive to DPI values and will not be scaled automatically 
+      by Windows in case of higher DPI values. Windows Presentation Foundation (WPF) applications are
+      automatically sensitive to DPI values, therefore explicit consent is not required. With Windows 
+      Forms applications targeting the .NET Framework 4.6 for which you have explicitly consented to 
+      this setting, you also need to set 'EnableWindowsFormsHighDpiAutoResizing' to 'true' in its
+      app.config file. -->
   <!--
   <application xmlns="urn:schemas-microsoft-com:asm.v3">
     <windowsSettings>
@@ -57,7 +59,7 @@
   </application>
   -->
 
-  <!-- Abilita i temi per finestre di dialogo e controlli comuni di Windows (Windows XP e versioni successive) -->
+  <!-- Enable themes for common Windows dialog boxes and controls (Windows XP and later)-->
   <!--
   <dependency>
     <dependentAssembly>

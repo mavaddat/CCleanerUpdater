@@ -8,7 +8,7 @@ namespace CCleanerUpdater
         static void Main(string[] args)
         {
             Tool = new Updater();
-           //Title
+            //Title
             Console.Title = "CCleanerUpdater by LightDestory";
             Tool.WriteLineColored(ConsoleColor.Blue, ConsoleColor.Red, Tool.getTitle());
             //Checking Update
@@ -20,7 +20,7 @@ namespace CCleanerUpdater
                 Console.Out.WriteLine(Tool.getUsage());
                 Console.Out.WriteLine("\nLanguages:\n\n" + Tool.getLangList());
             }
-            else if ((args.Length != 0 && args.Length!= 4) || (args.Length == 4 && (!args[0].Contains("path=") || !args[1].Contains("lang=") || !args[2].Contains("winapp2=") || !args[3].Contains("service="))))
+            else if ((args.Length != 0 && args.Length != 4) || (args.Length == 4 && (!args[0].Contains("path=") || !args[1].Contains("lang=") || !args[2].Contains("winapp2=") || !args[3].Contains("service="))))
             {
                 //Arguments Missing
                 Tool.WriteLineColored(ConsoleColor.Red, ConsoleColor.Black, "Wrong arguments!, try CCleanerUpdater.exe /help");
@@ -115,7 +115,7 @@ namespace CCleanerUpdater
             {
                 action = "none";
             }
-                Tool.Job("newinstall", lang, winapp2, action);
+            Tool.Job("newinstall", lang, winapp2, action);
         }
     }
 }
